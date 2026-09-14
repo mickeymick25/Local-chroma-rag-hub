@@ -1,0 +1,75 @@
+services:
+  chroma:
+    image: chromadb/chroma:latest
+    container_name: chroma
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/data
+    networks:
+      - chroma-net
+
+  chroma-mcp-proxy:
+    build:
+      context: .
+      dockerfile: mcp-proxy.Dockerfile
+    image: local/chroma-mcp-proxy:latest
+    container_name: chroma-mcp-proxy
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      CHROMA_CLIENT_TYPE: http
+      CHROMA_HOST: chroma
+      CHROMA_PORT: "8000"
+      CHROMA_SSL: "false"
+    depends_on:
+      - chroma
+    networks:
+      - chroma-net
+
+  indexer:
+    build:
+      context: .
+      dockerfile: indexer/Dockerfile
+    image: local/chroma-indexer:latest
+    profiles: ["tools"]
+    environment:
+      DOCS_DIR: /docs
+      CHROMA_HOST: chroma
+      CHROMA_PORT: "8000"
+      OLLAMA_URL: http://host.docker.internal:11434
+      EMBED_MODEL: bge-m3
+      COLLECTION: project_knowledge
+    volumes:
+      - ./docs:/docs:ro
+    networks:
+      - chroma-net
+    depends_on:
+      - chroma
+
+  memory-indexer:
+    build:
+      context: .
+      dockerfile: indexer/Dockerfile
+    image: local/chroma-indexer:latest
+    profiles: ["tools"]
+    entrypoint: ["python", "memory_indexer.py"]
+    environment:
+      MEMORY_DIR: /memory
+      COLLECTION: memories
+      CHROMA_HOST: chroma
+      CHROMA_PORT: "8000"
+      OLLAMA_URL: http://host.docker.internal:11434
+      EMBED_MODEL: bge-m3
+    volumes:
+      - ./memory:/memory:ro
+    networks:
+      - chroma-net
+    depends_on:
+      - chroma
+
+networks:
+  chroma-net:
+    external: true

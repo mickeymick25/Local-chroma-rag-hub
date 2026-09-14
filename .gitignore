@@ -1,0 +1,24 @@
+# ChromaDB : index dérivé, reconstruisable — jamais versionné
+data/
+
+# Résultats de benchmark : sorties régénérables à volonté
+benchmarks/results/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# macOS
+.DS_Store
+
+# Registre RAG multi-projets : état machine-local (slug -> chemin absolu)
+.rag-projects.list
+
+# Chroniques de validation par projet et traces machine-locales :
+# restent hors du dépôt public
+archives/
+tmp-26/
+docs/specs/pilote-*.md
+docs/specs/*corpus-qualification.md
+docs/specs/decisions-phase2.md

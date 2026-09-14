@@ -1,0 +1,25 @@
+{"id": "q01", "topic": "architecture", "question": "Quels sont les deux plans de l'architecture et que gère chacun ?", "expected": ["architecture-stack.md::0"]}
+{"id": "q02", "topic": "architecture-paraphrase", "question": "Qui consulte la base et qui la remplit ?", "expected": ["architecture-stack.md::0"]}
+{"id": "q03", "topic": "architecture", "question": "Décris le trajet complet d'une question de l'agent jusqu'à la base de vecteurs.", "expected": ["architecture-stack.md::1"]}
+{"id": "q04", "topic": "architecture-multi", "question": "Que se passe-t-il entre le dépôt d'un document dans Git et sa présence dans la collection ?", "expected": ["architecture-stack.md::2", "indexer.md::0"]}
+{"id": "q05", "topic": "docker-reseau", "question": "Comment les conteneurs se trouvent-ils les uns les autres sur le réseau ?", "expected": ["docker-compose.md::1"]}
+{"id": "q06", "topic": "docker-paraphrase", "question": "Que se passe-t-il si on éteint puis rallume toute la machine ?", "expected": ["docker-compose.md::0", "runbook.md::0"]}
+{"id": "q07", "topic": "persistance-multi", "question": "Qu'est-ce qui garantit que les données ne disparaissent pas quand on recrée un conteneur ?", "expected": ["persistance.md::0", "docker-compose.md::2"]}
+{"id": "q08", "topic": "persistance-paraphrase", "question": "Où faut-il copier pour mettre la base de côté en sécurité ?", "expected": ["persistance.md::2", "docker-compose.md::2"]}
+{"id": "q09", "topic": "mcp", "question": "Quels transports HTTP le proxy expose-t-il et sur quels chemins ?", "expected": ["mcp-protocole.md::0"]}
+{"id": "q10", "topic": "mcp", "question": "Quel endpoint l'éditeur doit-il utiliser pour joindre le serveur MCP, et pourquoi pas l'autre ?", "expected": ["mcp-protocole.md::1"]}
+{"id": "q11", "topic": "mcp-paraphrase", "question": "Pourquoi ma connexion à la base casse-t-elle quand je refais le conteneur du proxy ?", "expected": ["mcp-protocole.md::2", "runbook.md::2"]}
+{"id": "q12", "topic": "versions-multi", "question": "Pourquoi deux environnements Python cohabitent-ils dans le même conteneur ?", "expected": ["conflit-versions.md::0", "decisions.md::0"]}
+{"id": "q13", "topic": "versions", "question": "Quelles versions exactes du SDK MCP sont installées de chaque côté ?", "expected": ["conflit-versions.md::0", "conflit-versions.md::1"]}
+{"id": "q14", "topic": "versions", "question": "Que se passe-t-il si le paquet python ollama manque dans l'environnement virtuel ?", "expected": ["conflit-versions.md::1"]}
+{"id": "q15", "topic": "indexation-paraphrase", "question": "Comment l'indexeur découpe-t-il un document en morceaux ?", "expected": ["indexer.md::0"]}
+{"id": "q16", "topic": "indexation-paraphrase", "question": "Quelles métadonnées accompagnent chaque fragment dans la collection ?", "expected": ["indexer.md::1"]}
+{"id": "q17", "topic": "indexation", "question": "Comment l'indexeur sait-il qu'un fichier n'a pas changé depuis la dernière fois ?", "expected": ["indexer.md::1", "indexer.md::2"]}
+{"id": "q18", "topic": "indexation-multi", "question": "Que deviennent les chunks quand un fichier rétrécit ou disparaît du corpus ?", "expected": ["indexer.md::2", "architecture-stack.md::2"]}
+{"id": "q19", "topic": "adr", "question": "Quelles solutions ont été envisagées puis rejetées pour régler le conflit de versions ?", "expected": ["decisions.md::0"]}
+{"id": "q20", "topic": "adr-multi", "question": "Pourquoi le réseau est-il déclaré external dans le compose ?", "expected": ["decisions.md::1", "docker-compose.md::1"]}
+{"id": "q21", "topic": "adr-multi", "question": "Sur quels critères le modèle d'embedding actuel a-t-il été choisi ?", "expected": ["decisions.md::2", "ollama.md::1"]}
+{"id": "q22", "topic": "outils", "question": "Quels outils permettent de gérer le cycle de vie des collections ?", "expected": ["outils-chroma.md::0"]}
+{"id": "q23", "topic": "outils-paraphrase", "question": "Comment restreindre une recherche aux seules décisions archivées ?", "expected": ["outils-chroma.md::1"]}
+{"id": "q24", "topic": "ollama", "question": "Comment joindre le service d'embedding depuis l'intérieur d'un conteneur ?", "expected": ["ollama.md::0"]}
+{"id": "q25", "topic": "indexation-multi", "question": "Que faire pour repartir de zéro avec un nouveau modèle d'embedding ?", "expected": ["indexer.md::2", "runbook.md::1"]}
