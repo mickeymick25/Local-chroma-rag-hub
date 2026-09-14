@@ -29,4 +29,4 @@ Discipline de provenance :
 Les mémoires durables suivent le workflow du hub : l'agent
 propose, l'humain valide, Git trace, puis le memory-indexer.
 
-Réindexation : ~/AI/chroma/index-project.sh <racine du projet>
+Réindexation : /Users/michaelboitin/Documents/02_Dev/01_LocalRag_engine/AI/chroma/index-project.sh <racine du projet>
