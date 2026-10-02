@@ -22,3 +22,8 @@ validé par le benchmark Recall@k du 2026-09-04.
 <!-- updated: 2026-09-04 -->
 Le benchmark Recall@k doit précéder tout changement de modèle d'embedding
 en production.
+
+## conventions::005
+<!-- created: 2026-09-30 -->
+Un projet n'est instancié dans le hub RAG que lorsque son dossier docs/
+contient au moins un document à indexer.

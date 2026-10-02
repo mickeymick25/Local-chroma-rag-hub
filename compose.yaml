@@ -4,7 +4,10 @@ services:
     container_name: chroma
     restart: unless-stopped
     ports:
-      - "8000:8000"
+      # Bind loopback uniquement : Chroma ne doit rester joignable que
+      # depuis la machine hôte (les indexeurs passent par chroma-net,
+      # jamais par le port publié).
+      - "127.0.0.1:8000:8000"
     volumes:
       - ./data:/data
     networks:
@@ -18,7 +21,9 @@ services:
     container_name: chroma-mcp-proxy
     restart: unless-stopped
     ports:
-      - "8080:8080"
+      # Bind loopback uniquement : le proxy MCP n'est exposé qu'à Zed
+      # (localhost) — jamais aux autres appareils du réseau.
+      - "127.0.0.1:8080:8080"
     environment:
       CHROMA_CLIENT_TYPE: http
       CHROMA_HOST: chroma
